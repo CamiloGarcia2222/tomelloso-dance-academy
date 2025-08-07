@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Mi pagina web"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mi pg"
+	}
+}
