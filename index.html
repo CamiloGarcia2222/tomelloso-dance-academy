@@ -692,51 +692,6 @@
       document.body.style.overflow = 'auto';
     }
     
-    // Manejo del formulario
-    document.getElementById('formReserva').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Validación básica
-      const nombre = document.getElementById('nombre').value;
-      const email = document.getElementById('email').value;
-      const telefono = document.getElementById('telefono').value;
-      const clase = document.getElementById('clase').value;
-      const dia = document.getElementById('dia').value;
-      const fecha = document.getElementById('fecha').value;
-      
-      if (!nombre || !email || !telefono || !clase || !dia || !fecha) {
-        alert('Por favor completa todos los campos obligatorios');
-        return;
-      }
-      
-      // Validación de fecha (no agosto)
-      const fechaObj = new Date(fecha);
-      const mes = fechaObj.getMonth() + 1; // Enero es 0
-      
-      if (mes === 8) { // Agosto
-        alert('No hay clases durante el mes de agosto. Por favor selecciona otra fecha.');
-        return;
-      }
-      
-      // Validación de combinación día-clase
-      if ((dia === 'viernes' && clase === 'salsa') || 
-          (dia === 'jueves' && clase === 'bachata')) {
-        alert('La combinación de día y clase seleccionada no es válida. Por favor verifica los horarios.');
-        return;
-      }
-      
-      // Aquí iría la conexión con Calendly o tu sistema de reservas
-      alert('¡Reserva enviada con éxito! Te contactaremos para confirmar los detalles.');
-      
-      // Resetear formulario y cerrar popup
-      this.reset();
-      closeReservaPopup();
-    });
-    
-    // Configuración de fecha mínima (hoy)
-    const hoy = new Date().toISOString().split('T')[0];
-    document.getElementById('fecha').min = hoy;
-    
     // Cerrar popup al hacer clic fuera del contenido
     document.getElementById('reservaPopup').addEventListener('click', function(e) {
       if (e.target === this) {
